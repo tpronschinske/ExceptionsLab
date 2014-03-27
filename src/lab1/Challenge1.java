@@ -27,11 +27,14 @@ public class Challenge1 {
         JOptionPane.showMessageDialog(null, msg);
     }
     
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws NullPointerException{
+        if(fullName == null || fullName.length() < 1){
+            throw new NullPointerException("Can not be null, Length must be greater than one");
+        }
         fullName = fullName.trim();
         String[] nameParts = fullName.split(" ");
         if(nameParts.length !=3){
-            throw new IllegalArgumentException("Error");
+            throw new IllegalArgumentException("Error, First Name, Middle Initial, Last Name EX:(John P Smith)");
         }
         return nameParts[nameParts.length - 1];
     }

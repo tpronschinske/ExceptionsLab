@@ -19,6 +19,9 @@ public class NameService {
      * @return the last name
      */
     public String extractLastName(String fullName)throws FullNameException {
+        if(fullName == null || fullName.length() < 1){
+            throw new FullNameException("Error, Name Cant Be Null or Empty");
+        }
         fullName = fullName.trim();
         String[] nameParts = fullName.split(" ");
         if(nameParts.length != 2){
@@ -35,6 +38,9 @@ public class NameService {
      * @return the first name
      */
     public String extractFirstName(String fullName)throws FullNameException {
+         if(fullName == null || fullName.length() < 1){
+            throw new FullNameException("Error, Name Cant Be Null or Empty");
+        }
         fullName = fullName.trim();
         String[] nameParts = fullName.split(" ");
         if(nameParts.length != 2){
@@ -50,9 +56,6 @@ public class NameService {
      * @return the length of the name or part.
      */
     public int getNameLength(String name)throws IllegalArgumentException {
-        if(name == null || name.length() < 1){
-            throw new IllegalArgumentException("Please Enter A Valid Name");
-        }
         return name.length();
     }
     

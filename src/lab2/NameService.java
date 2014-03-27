@@ -19,10 +19,13 @@ public class NameService {
      * @return the last name
      */
     public String extractLastName(String fullName) throws IllegalArgumentException {
+        if(fullName == null|| fullName.length() < 1){
+            throw new NullPointerException("Error, Name cant be null");
+        }
         fullName = fullName.trim();
         String[] nameParts = fullName.split(" ");
         if(nameParts.length!= 2 ){
-            throw new IllegalArgumentException("Error");
+            throw new IllegalArgumentException("Error, First Name, Last Name EX(John Smith)");
         }
         return nameParts[nameParts.length - 1];
     }
@@ -35,10 +38,13 @@ public class NameService {
      * @return the first name
      */
     public String extractFirstName(String fullName) throws IllegalArgumentException {
+        if(fullName == null || fullName.length() < 1){
+            throw new NullPointerException("Name Cannot be Null, Name cant be less than one");
+        }
         fullName = fullName.trim();
         String[] nameParts = fullName.split(" ");
         if(nameParts.length != 2){
-            throw new IllegalArgumentException("Error");
+            throw new IllegalArgumentException("Error, First Name, Last Name EX (John Smith)");
         }
         return nameParts[FIRST_NAME_IDX];
     }
